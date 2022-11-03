@@ -14,7 +14,7 @@ export default {
     searchedProducts() {
       return this.posts.filter((product) => {
         return (
-          product.title.toLowerCase().includes(this.input.toLowerCase())
+          product.name.toLowerCase().includes(this.input.toLowerCase())
             || product.jobType.toLowerCase().includes(this.input.toLowerCase())
             || product.phone.toLowerCase().includes(this.input.toLowerCase())
             || product.classroom.toLowerCase().includes(this.input.toLowerCase())
@@ -25,7 +25,7 @@ export default {
 
   async mounted() {
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom, photo')
+    const { data, error } = await client.from('posts').select('id, name, phone, jobType, classroom, photo')
 
     if (error) {
       console.error(error)
@@ -75,7 +75,7 @@ export default {
             <div class="flex justify-content-between mb-3">
               <div>
                 <div class="text-900 font-medium text-3xl">
-                  {{ post.title }}
+                  {{ post.name }}
                 </div>
                 <span class="block text-900 font-medium mb-1 mt-3 text-3xl">Tel. {{ post.phone }}</span>
               </div>

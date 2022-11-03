@@ -38,7 +38,7 @@ export default {
     searchedProducts() {
       return this.posts.filter((product) => {
         return (
-          product.title.toLowerCase().includes(this.input.toLowerCase())
+          product.name.toLowerCase().includes(this.input.toLowerCase())
             || product.jobType.toLowerCase().includes(this.input.toLowerCase())
             || product.phone.toLowerCase().includes(this.input.toLowerCase())
             || product.classroom.toLowerCase().includes(this.input.toLowerCase())
@@ -49,7 +49,7 @@ export default {
 
   async mounted() {
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom, photo')
+    const { data, error } = await client.from('posts').select('id, name, phone, jobType, classroom, photo')
 
     if (error) {
       console.error(error)
@@ -119,7 +119,7 @@ export default {
                   <img width="100" :src="post.photo">
                 </div>
                 <div class="flex align-items-center text-gray-600 m-2 border-round text-2xl text-left" style="min-width: 350px; min-height: 100px">
-                  {{ post.title }}<br>
+                  {{ post.name }}<br>
                   Tel. +370 624 22869<br>
                   208 kab. <br>
                 </div>
