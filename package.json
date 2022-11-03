@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "packageManager": "pnpm@7.9.0",
+  "scripts": {
+    "build": "nuxi build",
+    "dev": "nuxi dev",
+    "start": "node .output/server/index.mjs",
+    "lint": "eslint .",
+    "postinstall": "nuxi prepare",
+    "generate": "nuxi generate"
+  },
+  "dependencies": {
+    "@nuxtjs/supabase": "^0.2.2",
+    "simple-keyboard": "^3.4.180"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.29.2",
+    "@pinia/nuxt": "^0.4.3",
+    "@vueuse/nuxt": "^9.4.0",
+    "eslint": "^8.26.0",
+    "nuxt": "^3.0.0-rc.12",
+    "pinia": "^2.0.23",
+    "typescript": "^4.8.4",
+    "primeflex": "3.2.1",
+    "primeicons": "5.0.0",
+    "primevue": "3.17.0"
+  }
+}
