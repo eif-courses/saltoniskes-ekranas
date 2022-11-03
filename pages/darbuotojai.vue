@@ -25,7 +25,7 @@ export default {
 
   async mounted() {
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom')
+    const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom, photo')
 
     if (error) {
       console.error(error)

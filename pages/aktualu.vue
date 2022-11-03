@@ -49,7 +49,7 @@ export default {
 
   async mounted() {
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom')
+    const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom, photo')
 
     if (error) {
       console.error(error)
@@ -111,14 +111,14 @@ export default {
         >
           <div class="surface-card shadow-2 p-3 border-round">
             <div class="card">
-              <p class="text-2xl text-left ml-2 mb-0 mt-0 text-blue-500 font-bold">
+              <p class="text-2xl text-left ml-5 mb-0 mt-0 text-bluegray-500 font-bold">
                 {{ post.jobType }}
               </p>
               <div class="flex flex-nowrap overflow-hidden card-container green-container" style="max-width: 700px">
                 <div class="flex align-items-center justify-content-center font-bold text-white m-2 border-round" style="min-width: 150px; min-height: 100px">
-                  <img src="https://i2.wp.com/eif.viko.lt/media/uploads/sites/5/2018/04/m-gzegozevskis.jpg?resize=150%2C150&ssl=1">
+                  <img width="100" :src="post.photo">
                 </div>
-                <div class="flex align-items-center justify-content-center bg-blue-400 font-bold text-white m-2 border-round text-2xl text-left" style="min-width: 350px; min-height: 100px">
+                <div class="flex align-items-center text-gray-600 m-2 border-round text-2xl text-left" style="min-width: 350px; min-height: 100px">
                   {{ post.title }}<br>
                   Tel. +370 624 22869<br>
                   208 kab. <br>
