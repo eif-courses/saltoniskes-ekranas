@@ -19,7 +19,7 @@ export default {
     <v-idle
       :loop="true"
       :wait="5"
-      :duration="30"
+      :duration="120"
       style="color: transparent;"
       @idle="onidle"
     />
