@@ -2,16 +2,18 @@
   <div class="viko-style grid grid-nogutter surface-section text-800">
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
       <section>
+        <DigitalClock />
+
         <span class="block text-6xl font-bold mb-1">Pasirinkite dominančią temą</span>
         <br>
 
-        <NuxtLink to="/darbuotojai">
+        <a href="/darbuotojai" target="_blank">
           <Button label="Kabinetų paieška" class="mr-3 p-button-raised p-button-rounded p-button-lg" />
-        </NuxtLink>
+        </a>
+        <a href="/darbuotojai" target="_blank">
 
-        <NuxtLink to="darbuotojai">
           <Button label="Aktuali informacija" class="p-button-raised p-button-rounded p-button-lg" />
-        </NuxtLink>
+        </a>
       </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">

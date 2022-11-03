@@ -22,9 +22,9 @@ export default {
       })
     },
   },
+
   async mounted() {
     const client = useSupabaseClient()
-
     const { data, error } = await client.from('posts').select('id, title, phone, jobType, classroom')
 
     if (error) {
@@ -87,7 +87,7 @@ export default {
         </div>
       </div>
     </div>
-    <SimpleKeyboard :input="input" @onChange="onChange" @onKeyPress="onKeyPress" />
+    <SimpleKeyboard :input="input" @on-change="onChange" @on-key-press="onKeyPress" />
   </div>
 </template>
 

@@ -20,4 +20,9 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: '',
   },
+  plugins: [
+    {
+      src: '~/plugins/vidle.js',
+    },
+  ],
 })
