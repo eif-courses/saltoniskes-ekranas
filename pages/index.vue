@@ -10,7 +10,7 @@
         <a href="/darbuotojai" target="_blank">
           <Button label="Kabinetų paieška" class="mr-3 p-button-raised p-button-rounded p-button-lg" />
         </a>
-        <a href="/darbuotojai" target="_blank">
+        <a href="/aktualu" target="_blank">
 
           <Button label="Aktuali informacija" class="p-button-raised p-button-rounded p-button-lg" />
         </a>
