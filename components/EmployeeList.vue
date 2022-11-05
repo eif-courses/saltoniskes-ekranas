@@ -1,11 +1,6 @@
 <script>
-import SimpleKeyboard from '../components/SimpleKeyboard'
-// https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html#optimize-with-intlify-unplugin-vue-i18n
 export default {
-  name: 'App',
-  components: {
-    SimpleKeyboard,
-  },
+  name: 'EmployeeList',
   data: () => ({
     input: '',
     posts: [],
@@ -37,19 +32,17 @@ export default {
   computed: {
     searchedProducts() {
       return this.posts.filter((product) => {
-        return (
-          product.name.toLowerCase().includes(this.input.toLowerCase())
-            || product.jobType.toLowerCase().includes(this.input.toLowerCase())
-            || product.phone.toLowerCase().includes(this.input.toLowerCase())
-            || product.classroom.toLowerCase().includes(this.input.toLowerCase())
-        )
+        return (product.jobType.toLowerCase().includes('Archyvas'))
       })
     },
   },
 
   async mounted() {
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('id, name, phone, jobType, classroom, photo')
+    const { data, error } = await client
+      .from('posts')
+      .select('id, name, phone, jobType, classroom, photo')
+      .filter('jobType', 'in', '("Archyvas")')
 
     if (error) {
       console.error(error)
@@ -76,37 +69,12 @@ export default {
 
 <template>
   <div id="app">
-    <div>
-      <Toolbar>
-        <template #start>
-          <a href="/"><Button label="Atgal" icon="pi pi-arrow-left" class="mr-8 mt-2 p-button-lg" /></a>
-
-          <div>
-            <span class="p-input-icon-left">
-              <i class="pi pi-search" />
-              <InputText
-                type="text" :value="input"
-                class="input p-inputtext-lg"
-                placeholder="Ieškokite..." @input="onInputChange"
-              />
-            </span>
-          </div>
-        </template>
-
-        <template #end>
-          <Button icon="pi pi-search" class="mr-2" />
-          <Button icon="pi pi-calendar" class="p-button-success mr-2" />
-          <Button icon="pi pi-times" class="p-button-danger" />
-        </template>
-      </Toolbar>
-    </div>
-
     <div
       class="surface-ground px-4 py-5 md:px-6 lg:px-8"
     >
       <div class="grid">
         <div
-          v-for="post of searchedProducts" :key="post.id"
+          v-for="post of posts" :key="post.id"
           class="col-12 md:col-6"
         >
           <div class="surface-card shadow-2 p-3 border-round">
@@ -129,7 +97,6 @@ export default {
         </div>
       </div>
     </div>
-    <SimpleKeyboard :input="input" @on-change="onChange" @on-key-press="onKeyPress"/>
   </div>
 </template>
 

@@ -1,10 +1,11 @@
 <script>
 import SimpleKeyboard from '../components/SimpleKeyboard'
+import EmployeeList from '~/components/EmployeeList.vue'
 // https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html#optimize-with-intlify-unplugin-vue-i18n
 export default {
   name: 'App',
   components: {
-    SimpleKeyboard,
+    EmployeeList,
   },
   data: () => ({
     input: '',
@@ -56,7 +57,11 @@ export default {
       alert('Unable to fetch records!')
     }
     else {
-      this.posts = data
+      const arr = []
+      for (const d of data)
+        arr.push(d.jobType)
+
+      this.posts = [...new Set(arr)]
     }
   },
   methods: {
@@ -69,6 +74,9 @@ export default {
     },
     onInputChange(input) {
       this.input = input.target.value
+    },
+    display(input) {
+      this.input = input
     },
   },
 }
@@ -106,20 +114,23 @@ export default {
     >
       <div class="grid">
         <div
-          v-for="post of searchedProducts" :key="post.id"
-          class="col-12 md:col-12"
+          v-for="post of posts" :key="post"
+          class="col-12 md:col-6"
         >
           <div class="surface-card shadow-2 p-3 border-round">
             <div class="card">
               <p class="text-2xl text-left ml-5 mb-0 mt-0 text-bluegray-500 font-bold">
-                {{ post.jobType }}
+                {{ post }}
               </p>
+              <button @click="display(post)">
+                OPEN
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <SimpleKeyboard :input="input" @on-change="onChange" @on-key-press="onKeyPress" />
+    <EmployeeList />
   </div>
 </template>
 
@@ -130,5 +141,8 @@ export default {
 }
 .p-inputtext{
   width: 750px!important;
+}
+.simple-keyboard{
+  visibility: hidden!important;
 }
 </style>
