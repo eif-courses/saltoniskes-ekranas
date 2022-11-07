@@ -7,7 +7,7 @@
         <span class="block text-6xl font-bold mb-1">Pasirinkite dominančią temą</span>
         <br>
 
-        <a href="/darbuotojai" target="_blank">
+        <a href="/kategorija" target="_blank">
           <Button label="Kabinetų paieška" class="mr-3 p-button-raised p-button-rounded p-button-lg" />
         </a>
         <a href="/aktualu" target="_blank">

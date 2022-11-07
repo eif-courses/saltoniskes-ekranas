@@ -4,12 +4,13 @@ import EmployeeList from '~/components/EmployeeList.vue'
 // https://vue-i18n.intlify.dev/guide/integrations/nuxt3.html#optimize-with-intlify-unplugin-vue-i18n
 export default {
   name: 'App',
+  components: {
+    EmployeeList,
+  },
   data: () => ({
-    input: 'Administracija',
-    cat: 'Administracija',
+    input: '',
     isVisible: true,
     posts: [],
-    employees: [],
     items: [
       {
         label: 'Update',
@@ -37,9 +38,12 @@ export default {
   }),
   computed: {
     searchedProducts() {
-      return this.employees.filter((product) => {
+      return this.posts.filter((product) => {
         return (
-          product.category.toLowerCase().includes(this.input.toLowerCase())
+          product.name.toLowerCase().includes(this.input.toLowerCase())
+            || product.jobType.toLowerCase().includes(this.input.toLowerCase())
+            || product.phone.toLowerCase().includes(this.input.toLowerCase())
+            || product.classroom.toLowerCase().includes(this.input.toLowerCase())
         )
       })
     },
@@ -59,7 +63,6 @@ export default {
         arr.push(d.category)
 
       this.posts = [...new Set(arr)]
-      this.employees = data
     }
   },
   methods: {
@@ -75,7 +78,6 @@ export default {
     },
     display(input) {
       this.input = input
-      this.cat = input
       this.isVisible = false
     },
   },
@@ -136,37 +138,7 @@ export default {
         x
       </button>
     </div>
-
-    <div id="app">
-      <div
-        class="surface-ground px-4 py-5 md:px-6 lg:px-8"
-      >
-        <div class="grid">
-          <div
-            v-for="post of searchedProducts" :key="post.id"
-            class="col-12 md:col-6"
-          >
-            <div class="surface-card shadow-2 p-3 border-round">
-              <div class="card">
-                <p class="text-2xl text-left ml-2 mb-0 mt-0 text-bluegray-500 font-bold">
-                  {{ post.jobType }}
-                </p>
-                <div class="flex flex-nowrap overflow-hidden card-container green-container" style="max-width: 700px">
-                  <div
-                    class="flex align-items-center text-gray-600 m-2 border-round text-2xl text-left"
-                    style="min-width: 350px; min-height: 100px"
-                  >
-                    {{ post.name }}<br>
-                    Tel. +370 624 22869<br>
-                    208 kab. <br>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <EmployeeList :category="input" />
   </div>
 </template>
 
