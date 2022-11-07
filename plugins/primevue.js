@@ -5,6 +5,7 @@ import InputText from 'primevue/inputtext'
 import Toast from 'primevue/toast'
 import Toolbar from 'primevue/toolbar'
 import ToastService from 'primevue/toastservice'
+import Divider from 'primevue/divider'
 
 export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(PrimeVue, { ripple: true })
@@ -13,5 +14,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.component('InputText', InputText)
   nuxtApp.vueApp.component('Toolbar', Toolbar)
   nuxtApp.vueApp.component('Toast', Toast)
+  nuxtApp.vueApp.component('Divider', Divider)
   // other components that you need
 })
