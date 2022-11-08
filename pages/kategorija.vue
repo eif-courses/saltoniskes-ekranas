@@ -114,7 +114,7 @@ export default {
                 </button>
               </a>
               <Divider layout="vertical" />
-              <a href="/aktualu" class="no-underline">
+              <a href="/aktualu?lang=en" class="no-underline">
                 <button class="button-30 text-2xl w-full font-bold" role="button">
                   {{ $t('search') }}
                 </button>
@@ -126,19 +126,16 @@ export default {
                 </button>
               </a>
               <Divider layout="vertical" />
-              <button class="button-30 text-2xl w-full font-bold" role="button" @click="changeLanguage">
-                <img v-if="language === 'lt'" src="/lt.png" width="64" alt="LT">
-                <img v-else src="/en.webp" width="64" alt="EN">
-                &nbsp;{{ $i18n.locale = language }}
-              </button>
             </div>
           </div>
         </template>
 
         <template #end>
-          <Button icon="pi pi-search" class="mr-2" />
-          <Button icon="pi pi-calendar" class="p-button-success mr-2" />
-          <Button icon="pi pi-times" class="p-button-danger" />
+          <button class="button-30 text-2xl mr-7 font-bold" role="button" @click="changeLanguage">
+            <img v-if="language === 'lt'" src="/lt.png" width="48" alt="LT">
+            <img v-else src="/en.webp" width="48" alt="EN">
+            &nbsp;{{ $i18n.locale = language }}
+          </button>
         </template>
       </Toolbar>
     </div>

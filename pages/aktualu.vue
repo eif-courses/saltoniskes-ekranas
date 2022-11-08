@@ -79,14 +79,28 @@ export default {
     <div>
       <Toolbar>
         <template #start>
-          <a href="/kategorija"><Button label="Atgal" icon="pi pi-arrow-left" class="mr-8 mt-2 p-button-lg" /></a>
+          <div class="flex pl-7">
+            <a href="/kategorija" class="no-underline">
+              <button class="button-30 text-3xl w-full font-bold mr-4" role="button">
+                {{ $t('contacts') }}
+              </button>
+            </a>
 
+            <Divider layout="vertical" />
+            <a href="/aktualu" class="no-underline">
+              <button class="button-30 text-2xl w-full font-bold" role="button">
+                {{ $t('news') }}
+              </button>
+            </a>
+            <Divider layout="vertical" />
+
+          </div>
           <div>
             <span class="p-input-icon-left">
               <i class="pi pi-search" />
               <InputText
                 type="text" :value="input"
-                class="input p-inputtext-lg"
+                class="input p-inputtext-lg w-full"
                 placeholder="Ieškokite..." @input="onInputChange"
               />
             </span>
@@ -94,9 +108,6 @@ export default {
         </template>
 
         <template #end>
-          <Button icon="pi pi-search" class="mr-2" />
-          <Button icon="pi pi-calendar" class="p-button-success mr-2" />
-          <Button icon="pi pi-times" class="p-button-danger" />
         </template>
       </Toolbar>
     </div>
@@ -117,7 +128,7 @@ export default {
         </div>
       </div>
     </div>
-    <SimpleKeyboard :input="input" @on-change="onChange" @on-key-press="onKeyPress"/>
+    <SimpleKeyboard :input="input" @on-change="onChange" @on-key-press="onKeyPress" />
   </div>
 </template>
 
