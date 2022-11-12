@@ -126,7 +126,7 @@ export default {
                 </button>
               </a>
               <Divider layout="vertical" />
-              <a :href="`aktualu?lang=${language}`" class="no-underline">
+              <a :href="`/aktualu?lang=${language}`" class="no-underline">
                 <button class="button-30 text-2xl w-full font-bold" role="button">
                   {{ $t('search') }}
                 </button>
