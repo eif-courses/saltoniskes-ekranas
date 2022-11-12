@@ -8,7 +8,12 @@ export default {
   },
   data: () => ({
     input: '',
+    cat: 'Administracija',
+    isVisible: true,
     posts: [],
+    postsEn: [],
+    language: 'lt',
+    employees: [],
     items: [
       {
         label: 'Update',
@@ -36,11 +41,23 @@ export default {
   }),
   computed: {
     searchedProducts() {
-      return this.posts.filter((product) => {
+      return this.employees.filter((product) => {
         return (
-          product.name.toLowerCase().includes(this.input.toLowerCase())
-            || product.jobType.toLowerCase().includes(this.input.toLowerCase())
-            || product.phone.toLowerCase().includes(this.input.toLowerCase())
+          product.category.toLowerCase().includes(this.input.toLowerCase())
+          || product.jobType.toLowerCase().includes(this.input.toLowerCase())
+          || product.name.toLowerCase().includes(this.input.toLowerCase())
+          || product.phone.toLowerCase().includes(this.input.toLowerCase())
+          || product.classroom.toLowerCase().includes(this.input.toLowerCase())
+        )
+      })
+    },
+    searchedProductsEnglish() {
+      return this.employees.filter((product) => {
+        return (
+          product.categoryEn.toLowerCase().includes(this.input.toLowerCase())
+        || product.jobTypeEn.toLowerCase().includes(this.input.toLowerCase())
+          || product.name.toLowerCase().includes(this.input.toLowerCase())
+        || product.phone.toLowerCase().includes(this.input.toLowerCase())
             || product.classroom.toLowerCase().includes(this.input.toLowerCase())
         )
       })
@@ -48,15 +65,27 @@ export default {
   },
 
   async mounted() {
+    this.language = this.$route.query.lang
+    this.$i18n.locale = this.$route.query.lang
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('id, name, phone, jobType, classroom, photo')
+
+    const { data, error } = await client.from('posts').select('*')
 
     if (error) {
       console.error(error)
       alert('Unable to fetch records!')
     }
     else {
-      this.posts = data
+      const arr = []
+      const arrEnglish = []
+      for (const d of data)
+        arr.push(d.category)
+
+      for (const d of data)
+        arrEnglish.push(d.categoryEn)
+      this.postsEn = [...new Set(arrEnglish)]
+      this.posts = [...new Set(arr)]
+      this.employees = data
     }
   },
   methods: {
@@ -93,7 +122,6 @@ export default {
               </button>
             </a>
             <Divider layout="vertical" />
-
           </div>
           <div>
             <span class="p-input-icon-left">
@@ -107,23 +135,39 @@ export default {
           </div>
         </template>
 
-        <template #end>
-        </template>
+        <template #end />
       </Toolbar>
     </div>
 
     <div
       class="surface-ground px-4 py-5 md:px-6 lg:px-8"
     >
-      <div class="grid">
+      <div v-if="language === 'lt'" class="grid">
         <div
           v-for="post of searchedProducts" :key="post.id"
           class="col-12 md:col-6"
         >
           <button class="button-8 text-gray-600 w-full text-2xl text-left" role="button">
-            <span class="text-bluegray-500 font-bold">{{ post.jobType }}</span><br> {{ post.name }}<br>
+            <span v-if="language === 'lt'" class="text-bluegray-500 font-bold">{{ post.jobType }}</span>
+            <span v-else class="text-bluegray-500 font-bold">{{ post.jobTypeEn }}</span>
+            <br> {{ post.name }}<br>
             Tel. {{ post.phone }}<br>
             {{ post.classroom }} kab. <br>
+          </button>
+        </div>
+      </div>
+
+      <div v-else class="grid">
+        <div
+          v-for="pEng of searchedProductsEnglish" :key="pEng.id"
+          class="col-12 md:col-6"
+        >
+          <button class="button-8 text-gray-600 w-full text-2xl text-left" role="button">
+            <span v-if="language === 'en'" class="text-bluegray-500 font-bold">{{ pEng.jobTypeEn }}</span>
+            <span v-else class="text-bluegray-500 font-bold">{{ pEng.jobType }}</span>
+            <br> {{ pEng.name }}<br>
+            Tel. {{ pEng.phone }}<br>
+            {{ pEng.classroom }} kab. <br>
           </button>
         </div>
       </div>

@@ -9,6 +9,7 @@ export default {
     cat: 'Administracija',
     isVisible: true,
     posts: [],
+    postsEn: [],
     language: 'lt',
     employees: [],
     items: [
@@ -45,6 +46,13 @@ export default {
         )
       })
     },
+    searchedProductsEnglish() {
+      return this.employees.filter((product) => {
+        return (
+          product.categoryEn.toLowerCase().includes(this.input.toLowerCase())
+        )
+      })
+    },
   },
 
   async mounted() {
@@ -57,9 +65,13 @@ export default {
     }
     else {
       const arr = []
+      const arrEnglish = []
       for (const d of data)
         arr.push(d.category)
 
+      for (const d of data)
+        arrEnglish.push(d.categoryEn)
+      this.postsEn = [...new Set(arrEnglish)]
       this.posts = [...new Set(arr)]
       this.employees = data
     }
@@ -114,7 +126,7 @@ export default {
                 </button>
               </a>
               <Divider layout="vertical" />
-              <a href="/aktualu?lang=en" class="no-underline">
+              <a :href="`aktualu?lang=${language}`" class="no-underline">
                 <button class="button-30 text-2xl w-full font-bold" role="button">
                   {{ $t('search') }}
                 </button>
@@ -129,9 +141,8 @@ export default {
             </div>
           </div>
         </template>
-
         <template #end>
-          <button class="button-30 text-2xl mr-7 font-bold" role="button" @click="changeLanguage">
+          <button v-show="isVisible" class="button-30 text-2xl mr-7 font-bold" role="button" @click="changeLanguage">
             <img v-if="language === 'lt'" src="/lt.png" width="48" alt="LT">
             <img v-else src="/en.webp" width="48" alt="EN">
             &nbsp;{{ $i18n.locale = language }}
@@ -144,7 +155,7 @@ export default {
       v-show="isVisible"
       class="surface-ground px-4 py-5 md:px-6 lg:px-8"
     >
-      <div class="grid">
+      <div v-if="language === 'lt'" class="grid">
         <div
           v-for="post of posts" :key="post"
           class="col-12 md:col-6"
@@ -156,12 +167,25 @@ export default {
           </div>
         </div>
       </div>
+
+      <div v-else class="grid">
+        <div
+          v-for="postEnglish of postsEn" :key="postEnglish"
+          class="col-12 md:col-6"
+        >
+          <div>
+            <button class="button-30 text-2xl w-full font-bold p-5" role="button" @click="display(postEnglish)">
+              {{ postEnglish }}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
     <div id="app">
       <div
         class="surface-ground px-4 py-5 md:px-6 lg:px-8"
       >
-        <div class="grid">
+        <div v-if="language === 'lt'" class="grid">
           <div
             v-for="post of searchedProducts" :key="post.id"
             class="col-12 md:col-6"
@@ -172,6 +196,21 @@ export default {
               <br> {{ post.name }}<br>
               Tel. {{ post.phone }}<br>
               {{ post.classroom }} kab. <br>
+            </button>
+          </div>
+        </div>
+
+        <div v-else class="grid">
+          <div
+            v-for="pEng of searchedProductsEnglish" :key="pEng.id"
+            class="col-12 md:col-6"
+          >
+            <button class="button-8 text-gray-600 w-full text-2xl text-left" role="button">
+              <span v-if="language === 'en'" class="text-bluegray-500 font-bold">{{ pEng.jobTypeEn }}</span>
+              <span v-else class="text-bluegray-500 font-bold">{{ pEng.jobType }}</span>
+              <br> {{ pEng.name }}<br>
+              Tel. {{ pEng.phone }}<br>
+              {{ pEng.classroom }} kab. <br>
             </button>
           </div>
         </div>
