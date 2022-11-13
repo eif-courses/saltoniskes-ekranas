@@ -10,7 +10,7 @@
         <a href="/kategorija" target="_blank">
           <Button label="Kabinetų paieška" class="mr-3 p-button-raised p-button-rounded p-button-lg" />
         </a>
-        <a href="/aktualu" target="_blank">
+        <a href="/naujienos" target="_blank">
 
           <Button label="Aktuali informacija" class="p-button-raised p-button-rounded p-button-lg" />
         </a>

@@ -116,13 +116,13 @@ export default {
             </a>
             <Divider layout="vertical" />
             <a :href="`/aktualu?lang=${language}`" class="no-underline">
-              <button class="button-30 bg-cyan-100 text-2xl w-full font-bold" role="button">
+              <button class="button-30 text-2xl w-full font-bold" role="button">
                 {{ $t('search') }}
               </button>
             </a>
             <Divider layout="vertical" />
             <a :href="`/naujienos?lang=${language}`" class="no-underline">
-              <button class="button-30 text-2xl w-full font-bold" role="button">
+              <button class="button-30 bg-cyan-100 text-2xl w-full font-bold" role="button">
                 {{ $t('news') }}
               </button>
             </a>
@@ -150,30 +150,30 @@ export default {
       <div v-if="language === 'lt'" class="grid">
         <div
           v-for="post of searchedProducts" :key="post.id"
-          class="col-12 md:col-6"
+          class="col-12 md:col-12"
         >
-          <button class="button-8 text-gray-600 w-full text-2xl text-left" role="button">
+          <div class="list-item w-full text-2xl text-left">
             <span v-if="language === 'lt'" class="text-bluegray-500 font-bold">{{ post.jobType }}</span>
             <span v-else class="text-bluegray-500 font-bold">{{ post.jobTypeEn }}</span>
             <br> {{ post.name }}<br>
             Tel. {{ post.phone }}<br>
             {{ post.classroom }} kab. <br>
-          </button>
+          </div>
         </div>
       </div>
 
       <div v-else class="grid">
         <div
           v-for="pEng of searchedProductsEnglish" :key="pEng.id"
-          class="col-12 md:col-6"
+          class="col-12 md:col-12"
         >
-          <button class="button-8 text-gray-600 w-full text-2xl text-left" role="button">
+          <div class="list-item w-full text-2xl text-left">
             <span v-if="language === 'en'" class="text-bluegray-500 font-bold">{{ pEng.jobTypeEn }}</span>
             <span v-else class="text-bluegray-500 font-bold">{{ pEng.jobType }}</span>
             <br> {{ pEng.name }}<br>
             Tel. {{ pEng.phone }}<br>
             {{ pEng.classroom }} kab. <br>
-          </button>
+          </div>
         </div>
       </div>
     </div>
@@ -182,6 +182,10 @@ export default {
 </template>
 
 <style scoped>
+.list-item {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+}
 .button-30 {
   align-items: center;
   appearance: none;

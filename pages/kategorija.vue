@@ -56,6 +56,8 @@ export default {
   },
 
   async mounted() {
+    this.language = this.$route.query.lang
+    this.$i18n.locale = this.$route.query.lang
     const client = useSupabaseClient()
     const { data, error } = await client.from('posts').select('*')
 
@@ -120,8 +122,8 @@ export default {
           </div>
           <div v-else>
             <div class="flex pl-7">
-              <a href="/kategorija" class="no-underline">
-                <button class="button-30 text-3xl w-full font-bold mr-4 bg-green-200" role="button">
+              <a :href="`/kategorija?lang=${language}`" class="no-underline">
+                <button class="button-30 text-3xl w-full font-bold mr-4 bg-cyan-100" role="button">
                   {{ $t('contacts') }}
                 </button>
               </a>
@@ -132,7 +134,7 @@ export default {
                 </button>
               </a>
               <Divider layout="vertical" />
-              <a href="/aktualu" class="no-underline">
+              <a :href="`/naujienos?lang=${language}`" class="no-underline">
                 <button class="button-30 text-2xl w-full font-bold" role="button">
                   {{ $t('news') }}
                 </button>
