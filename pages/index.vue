@@ -87,7 +87,7 @@ export default {
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
   display: inline-flex;
-  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: 'Azo Sans', sans-serif;
   font-size: 16px;
   font-weight: 600;
   justify-content: center;

@@ -157,7 +157,7 @@ export default {
           class="col-12 md:col-6"
         >
           <div>
-            <button class="button-30 text-xl w-full font-bold p-5" role="button" @click="display(post)">
+            <button class="button-30 text-5xl w-full h-full font-bold p-5" role="button" @click="display(post)">
               {{ post }}
             </button>
           </div>
@@ -170,7 +170,7 @@ export default {
           class="col-12 md:col-6"
         >
           <div>
-            <button class="button-30 text-2xl w-full font-bold p-5" role="button" @click="display(postEnglish)">
+            <button class="button-30 text-5xl w-full h-full font-bold p-5" role="button" @click="display(postEnglish)">
               {{ postEnglish }}
             </button>
           </div>
@@ -238,7 +238,7 @@ export default {
                                                      color: #36395A;
                                                      cursor: pointer;
                                                      display: inline-flex;
-                                                     font-family: "JetBrains Mono",monospace;
+                                                     font-family: 'Azo Sans', sans-serif;
                                                      height: 48px;
                                                      justify-content: center;
                                                      line-height: 1;
@@ -254,7 +254,7 @@ export default {
                                                      -webkit-user-select: none;
                                                      touch-action: manipulation;
                                                      will-change: box-shadow,transform;
-                                                     font-size: 18px;
+                                                     font-size: 28px;
                                                    }
 
 .button-30:focus {
