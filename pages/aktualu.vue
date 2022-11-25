@@ -325,7 +325,7 @@ export default {
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  white-space: nowrap;
+
 }
 
 .button-8:hover,

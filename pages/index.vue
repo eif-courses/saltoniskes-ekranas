@@ -67,7 +67,7 @@ export default {
       </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">
-      <img src="https://i.ibb.co/cCtZGyR/viko.jpg" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
+      <img src="https://i.ibb.co/cCtZGyR/viko.jpg" alt="Image" class="md:mr-8 block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>
   </div>
 </template>

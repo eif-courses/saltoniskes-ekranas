@@ -155,7 +155,6 @@ export default {
         <div
           v-for="post of posts" :key="post"
           class="col-12 md:col-6"
-          style="word-break: break-word;"
         >
           <div>
             <button class="button-30 text-xl w-full font-bold p-5" role="button" @click="display(post)">
@@ -254,7 +253,6 @@ export default {
                                                      user-select: none;
                                                      -webkit-user-select: none;
                                                      touch-action: manipulation;
-                                                     white-space: nowrap;
                                                      will-change: box-shadow,transform;
                                                      font-size: 18px;
                                                    }
@@ -377,7 +375,6 @@ export default {
                                                    -webkit-user-select: none;
                                                    touch-action: manipulation;
                                                    vertical-align: baseline;
-                                                   white-space: nowrap;
                                                  }
 
 .button-8:hover,
