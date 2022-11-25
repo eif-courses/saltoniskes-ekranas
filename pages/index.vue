@@ -50,21 +50,21 @@ export default {
   <div class="viko-style grid grid-nogutter surface-section text-800">
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
       <section>
-        <button class="button-30 text-5xl h-full font-bold p-5" role="button" @click="changeLanguage">
-          <img v-if="language === 'lt'" src="/lt.png" width="64" alt="LT">
-          <img v-else src="/en.webp" width="64" alt="EN">
-          &nbsp;{{ $i18n.locale = language }}
-        </button>
         <DigitalClock />
-        <br>
 
         <span class="p-buttonset">
           <a :href="`/kategorija?lang=${language}`" class="no-underline">
-          <Button class="button-30 text-5xl h-full font-bold p-5"> {{ $t('contacts') }}</Button>
-        </a>
-        <a :href="`/aktualu?lang=${language}`" class="no-underline">
-          <Button class="button-30 text-5xl h-full font-bold p-5 ml-5"> {{ $t('search') }}</Button>
-        </a>
+            <button class="button-30 text-5xl h-full font-bold p-5"> {{ $t('contacts') }}</button>
+          </a>
+          <a :href="`/aktualu?lang=${language}`" class="no-underline">
+            <button class="button-30 text-5xl h-full font-bold p-5 ml-5"> {{ $t('search') }}</button>
+          </a>
+          <button class="button-30 text-5xl h-full font-bold p-5 ml-5" role="button" @click="changeLanguage">
+            <img v-if="language === 'lt'" src="/lt.png" width="64" alt="LT">
+            <img v-else src="/en.webp" width="64" alt="EN">
+            &nbsp;{{ $i18n.locale = language }}
+          </button>
+
         </span>
       </section>
     </div>
@@ -85,7 +85,75 @@ export default {
 .viko-style {
   background-image: linear-gradient(180deg, #2af598 0%, #009efd 100%);
 }
+/* CSS */
+.button-17 {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border-radius: 24px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, .2) 0 3px 5px -1px,rgba(0, 0, 0, .14) 0 6px 10px 0,rgba(0, 0, 0, .12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #3c4043;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: .25px;
+  line-height: normal;
+  max-width: 100%;
+  overflow: visible;
+  padding: 2px 24px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1),opacity 15ms linear 30ms,transform 270ms cubic-bezier(0, 0, .2, 1) 0ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: auto;
+  will-change: transform,opacity;
+  z-index: 0;
+}
 
+.button-17:hover {
+  background: #F6F9FE;
+  color: #174ea6;
+}
+
+.button-17:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%), 0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.button-17:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.button-17:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, .3) 0 2px 3px 0, rgba(60, 64, 67, .15) 0 6px 10px 4px;
+}
+
+.button-17:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
+
+.button-17:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, .3) 0 4px 4px 0, rgba(60, 64, 67, .15) 0 8px 12px 6px;
+}
+
+.button-17:disabled {
+  box-shadow: rgba(60, 64, 67, .3) 0 1px 3px 0, rgba(60, 64, 67, .15) 0 4px 8px 3px;
+}
 .button-6 {
   align-items: center;
   background-color: #FFFFFF;
@@ -204,6 +272,4 @@ export default {
   will-change: box-shadow,transform;
   font-size: 28px;
 }
-
-
 </style>
