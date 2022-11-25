@@ -50,25 +50,34 @@ export default {
   <div class="viko-style grid grid-nogutter surface-section text-800">
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
       <section>
-        <button class="button-6 text-2xl mr-7 font-bold" role="button" @click="changeLanguage">
-          <img v-if="language === 'lt'" src="/lt.png" width="48" alt="LT">
-          <img v-else src="/en.webp" width="48" alt="EN">
+        <button class="button-30 text-5xl h-full font-bold p-5" role="button" @click="changeLanguage">
+          <img v-if="language === 'lt'" src="/lt.png" width="64" alt="LT">
+          <img v-else src="/en.webp" width="64" alt="EN">
           &nbsp;{{ $i18n.locale = language }}
         </button>
         <DigitalClock />
         <br>
 
-        <a :href="`/kategorija?lang=${language}`" class="no-underline">
-          <Button class="mr-3 p-button-raised p-button-rounded p-button-lg text-6xl"> {{ $t('contacts') }}</Button>
+        <span class="p-buttonset">
+          <a :href="`/kategorija?lang=${language}`" class="no-underline">
+          <Button class="button-30 text-5xl h-full font-bold p-5"> {{ $t('contacts') }}</Button>
         </a>
         <a :href="`/aktualu?lang=${language}`" class="no-underline">
-          <Button class="mr-3 p-button-raised p-button-rounded p-button-lg text-6xl"> {{ $t('search') }}</Button>
+          <Button class="button-30 text-5xl h-full font-bold p-5 ml-5"> {{ $t('search') }}</Button>
         </a>
+        </span>
       </section>
     </div>
     <div class="col-12 md:col-6 overflow-hidden">
       <img src="https://i.ibb.co/cCtZGyR/viko.jpg" alt="Image" class="md:mr-8 block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>
+  </div>
+  <div class="button-31 p-7 col-12 w-full h-full">
+    Vilniaus kolegija<br>
+    Saltoniškių g. 58 - 1, 08105, Vilnius.<br>
+    Įmonės kodas 111965131<br>
+    PVM mokėtojo kodas LT119651314<br>
+    Tel. (8 5) 219 1600
   </div>
 </template>
 
@@ -123,4 +132,78 @@ export default {
   color: rgba(0, 0, 0, 0.65);
   transform: translateY(0);
 }
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Azo Sans', sans-serif;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: box-shadow,transform;
+  font-size: 28px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.button-31 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Azo Sans', sans-serif;
+  height: 48px;
+  line-height: 1.5;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: box-shadow,transform;
+  font-size: 28px;
+}
+
+
 </style>

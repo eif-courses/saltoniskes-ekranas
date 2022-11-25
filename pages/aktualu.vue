@@ -73,7 +73,7 @@ export default {
 
     if (error) {
       console.error(error)
-      alert('Unable to fetch records!')
+      // alert('Unable to fetch records!')
     }
     else {
       const arr = []
@@ -342,5 +342,22 @@ export default {
   background-color: #a0c7e4;
   box-shadow: none;
   color: #2c5777;
+}
+.simple-keyboard.myTheme .hg-button {
+  background-color: #004562;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: unset;
+  color: white;
+  font-weight: bold;
+  border-width: 4px;
+  border-style: solid;
+  border-top-color: #8ab0be;
+  border-left-color: #017aa4;
+  border-bottom-color: #002d40;
+  border-right-color: #004056;
 }
 </style>

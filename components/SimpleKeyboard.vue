@@ -37,7 +37,7 @@ export default {
       },
       display: {
         '{enter}': 'submit',
-        '{bksp}': '\u232B    ',
+        '{bksp}': '&#x232b',
         '{lock}': 'lock',
         '{shift}': 'shift',
         '{tab}': 'tab',
@@ -81,6 +81,11 @@ export default {
   right: 0;
   font-size: 25pt;
   position: fixed;
+}
+
+.simple-keyboard .hg-button {
+  height: 67px;
+  width: 99px;
 }
 </style>
 
