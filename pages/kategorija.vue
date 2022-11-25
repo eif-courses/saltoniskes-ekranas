@@ -134,12 +134,6 @@ export default {
                 </button>
               </a>
               <Divider layout="vertical" />
-              <a :href="`/naujienos?lang=${language}`" class="no-underline">
-                <button class="button-30 text-2xl w-full font-bold" role="button">
-                  {{ $t('news') }}
-                </button>
-              </a>
-              <Divider layout="vertical" />
             </div>
           </div>
         </template>
@@ -161,9 +155,10 @@ export default {
         <div
           v-for="post of posts" :key="post"
           class="col-12 md:col-6"
+          style="word-break: break-word;"
         >
           <div>
-            <button class="button-30 text-2xl w-full font-bold p-5" role="button" @click="display(post)">
+            <button class="button-30 text-xl w-full font-bold p-5" role="button" @click="display(post)">
               {{ post }}
             </button>
           </div>

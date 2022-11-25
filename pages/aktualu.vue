@@ -121,12 +121,6 @@ export default {
               </button>
             </a>
             <Divider layout="vertical" />
-            <a :href="`/naujienos?lang=${language}`" class="no-underline">
-              <button class="button-30 text-2xl w-full font-bold" role="button">
-                {{ $t('news') }}
-              </button>
-            </a>
-            <Divider layout="vertical" />
           </div>
           <div>
             <span class="p-input-icon-left">

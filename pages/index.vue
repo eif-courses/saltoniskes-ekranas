@@ -56,16 +56,13 @@ export default {
           &nbsp;{{ $i18n.locale = language }}
         </button>
         <DigitalClock />
-
-        <span class="block text-white text-6xl font-bold mb-1">{{ $t('info') }}</span>
         <br>
 
         <a :href="`/kategorija?lang=${language}`" class="no-underline">
-          <Button class="mr-3 p-button-raised p-button-rounded p-button-lg"> {{ $t('search') }}</Button>
+          <Button class="mr-3 p-button-raised p-button-rounded p-button-lg text-6xl"> {{ $t('contacts') }}</Button>
         </a>
-        <a :href="`/naujienos?lang=${language}`" class="no-underline">
-
-          <Button class="p-button-raised p-button-rounded p-button-lg">{{ $t('news') }} </Button>
+        <a :href="`/aktualu?lang=${language}`" class="no-underline">
+          <Button class="mr-3 p-button-raised p-button-rounded p-button-lg text-6xl"> {{ $t('search') }}</Button>
         </a>
       </section>
     </div>

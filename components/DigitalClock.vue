@@ -13,9 +13,9 @@ export default {
 <template>
   <div>
     <!-- <p class="font-bold text-white text-lg">{{ currentTime.toLocaleString() }}</p> -->
-    <p class="font-bold text-white text-7xl">
+    <p class="font-bold text-white text-8xl">
       {{ currentTime.toLocaleTimeString("lt-LT") }} val. <br/>
-      <span class="text-3xl">{{ currentTime.toLocaleDateString("lt-LT", { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }) }}</span>
+      <span class="text-5xl">{{ currentTime.toLocaleDateString("lt-LT", { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }) }}</span>
     </p>
   </div>
 </template>
