@@ -61,7 +61,7 @@ export default {
     this.language = this.$route.query.lang
     this.$i18n.locale = this.$route.query.lang
     const client = useSupabaseClient()
-    const { data, error } = await client.from('posts').select('*')
+    const { data, error } = await client.from('posts').select('*').order('order', { ascending: true })
 
     if (error) {
       console.error(error)
