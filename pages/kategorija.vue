@@ -142,8 +142,8 @@ export default {
         </template>
         <template #end>
           <button v-show="isVisible" class="button-17 text-2xl mr-7 font-bold" role="button" @click="changeLanguage">
-            <img v-if="language === 'lt'" src="/lt.png" width="48" alt="LT">
-            <img v-else src="/en.webp" width="48" alt="EN">
+            <img v-if="language === 'lt'" src="ltmaza.png" width="48" alt="LT">
+            <img v-else src="/en.png" width="48" alt="EN">
             &nbsp;{{ $i18n.locale = language }}
           </button>
         </template>

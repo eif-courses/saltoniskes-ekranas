@@ -53,18 +53,19 @@ export default {
         <DigitalClock />
 
         <span class="p-buttonset">
-          <a :href="`/kategorija?lang=${language}`" class="no-underline">
-            <button class="button-30 text-5xl h-full font-bold p-5"> {{ $t('contacts') }}</button>
-          </a>
-          <a :href="`/aktualu?lang=${language}`" class="no-underline">
-            <button class="button-30 text-5xl h-full font-bold p-5 ml-5"> {{ $t('search') }}</button>
-          </a>
-          <button class="button-30 text-5xl h-full font-bold p-5 ml-5" role="button" @click="changeLanguage">
-            <img v-if="language === 'lt'" src="/lt.png" width="64" alt="LT">
-            <img v-else src="/en.webp" width="64" alt="EN">
-            &nbsp;{{ $i18n.locale = language }}
-          </button>
 
+          <a href="/kategorija?lang=lt" class="no-underline">
+            <button class="button-30 text-5xl h-full font-bold p-5" role="button" @click="changeLanguage">
+              <img src="/lietuviu.png" width="100" alt="LT">
+              &nbsp;Kontaktai
+            </button>
+          </a>
+          <a href="/kategorija?lang=en" class="no-underline">
+            <button class="button-30 text-5xl h-full font-bold p-5 ml-5" role="button" @click="changeLanguage">
+              <img src="/en.png" width="100" alt="LT">
+              &nbsp;Contacts
+            </button>
+          </a>
         </span>
       </section>
     </div>

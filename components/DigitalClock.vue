@@ -13,10 +13,10 @@ export default {
 <template>
   <div>
     <!-- <p class="font-bold text-white text-lg">{{ currentTime.toLocaleString() }}</p> -->
-    <div class="mt-8 font-bold text-white text-8xl">
+    <div class="font-bold mt-5 text-white text-8xl">
       {{ currentTime.toLocaleTimeString("lt-LT") }}
     </div>
-    <div class="text-4xl mt-2 mb-4 text-white">
+    <div class="text-4xl mt-1 mb-4 text-white">
       {{ currentTime.toLocaleDateString("lt-LT", { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' }) }}
     </div>
   </div>
