@@ -142,7 +142,7 @@ export default {
         </template>
         <template #end>
           <button v-show="isVisible" class="button-17 text-2xl mr-7 font-bold" role="button" @click="changeLanguage">
-            <img v-if="language === 'lt'" src="ltmaza.png" width="48" alt="LT">
+            <img v-if="language === 'lt'" src="/ltmaza.png" width="48" alt="LT">
             <img v-else src="/en.png" width="48" alt="EN">
             &nbsp;{{ $i18n.locale = language }}
           </button>
@@ -190,12 +190,16 @@ export default {
             class="col-12 md:col-6"
           >
             <button class="button-55 text-gray-600 w-full text-2xl text-left" role="button">
-              <span v-if="language === 'lt'" class="text-bluegray-500 font-bold">{{ post.jobType }}</span>
-              <span v-else class="text-bluegray-500 font-bold">{{ post.jobTypeEn }}</span>
-              <br> {{ post.name }}<br>
-              Tel. {{ post.phone }}<br>
-              {{ post.classroom }} kab. <br>
+              <span v-if="language === 'lt'" class="text-gray-700 font-bold text-2xl">{{ post.jobType }}</span>
+              <span v-else class="text-gray-700 font-bold">{{ post.jobTypeEn }}</span>
+              <br>
+              <hr>
+              <b class="text-3xl ml-8">{{ post.name }}</b><br>
+              <b class="text-3xl ml-8 text-indigo-400">Tel. {{ post.phone }}</b><br>
+              <hr>
+              <b class="text-green-500 ml-8">{{ post.classroom }} kab. </b><br>
             </button>
+
           </div>
         </div>
 
@@ -205,11 +209,14 @@ export default {
             class="col-12 md:col-6"
           >
             <button class="button-55 text-gray-600 w-full text-2xl text-left" role="button">
-              <span v-if="language === 'en'" class="text-bluegray-500 font-bold">{{ pEng.jobTypeEn }}</span>
-              <span v-else class="text-bluegray-500 font-bold">{{ pEng.jobType }}</span>
-              <br> {{ pEng.name }}<br>
-              Tel. {{ pEng.phone }}<br>
-              {{ pEng.classroom }} kab. <br>
+              <span v-if="language === 'en'" class="text-gray-700 font-bold">{{ pEng.jobTypeEn }}</span>
+              <span v-else class="text-gray-700 font-bold">{{ pEng.jobType }}</span>
+              <br>
+              <hr>
+              <b class="text-3xl ml-8"> {{ pEng.name }}</b><br>
+              <b class="text-3xl ml-8 text-indigo-400">Tel. {{ pEng.phone }}</b><br>
+              <hr>
+              <b class="text-green-500">{{ pEng.classroom }} kab.</b> <br>
             </button>
           </div>
         </div>
