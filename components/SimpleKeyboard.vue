@@ -13,6 +13,7 @@ export default {
       type: String,
     },
   },
+  emits: ['onChange', 'onKeyPress'],
   data: () => ({
     keyboard: null,
   }),

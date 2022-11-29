@@ -113,14 +113,18 @@ export default {
       <Toolbar>
         <template #start>
           <div v-if="isVisible === false">
-            <div class="flex  pl-7">
-              <div class="mt-1 text-2xl">
+            <div class="flex pl-7">
+              <div class="mt-1">
+                <Button icon="pi pi-arrow-left" @click="isVisible = true, hideList = false" />
+              </div>
+              <div class="mt-1 ml-2 text-3xl text-blue-500" @click="isVisible = true, hideList = false">
+                {{ $t('back') }}
+              </div>
+              <Divider layout="vertical" />
+              <div class="mt-1 text-3xl">
                 {{ $t('category') }} > {{ input }}
               </div>
               <Divider layout="vertical" />
-              <div class="mt-1">
-                <Button icon="pi pi-times" class="p-button-danger" @click="isVisible = true, hideList = false" />
-              </div>
             </div>
           </div>
           <div v-else>
@@ -199,7 +203,6 @@ export default {
               <hr>
               <b class="text-green-500 ml-8">{{ post.classroom }} kab. </b><br>
             </button>
-
           </div>
         </div>
 

@@ -249,7 +249,7 @@ export default {
 .button-31 {
   align-items: center;
   margin-left:50px;
-  width: 95%;
+  width: 92%;
   appearance: none;
   background-color: #FCFCFD;
   border-radius: 4px;

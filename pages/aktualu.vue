@@ -8,6 +8,7 @@ export default {
   },
   data: () => ({
     input: '',
+    isOpenKeyboard: false,
     cat: 'Administracija',
     isVisible: true,
     posts: [],
@@ -128,7 +129,10 @@ export default {
               <InputText
                 type="text" :value="input"
                 class="input p-inputtext-lg w-full"
-                :placeholder="$t('search')" @input="onInputChange"
+                :placeholder="$t('search')"
+                @focusin="isOpenKeyboard = true"
+                @focusout="isOpenKeyboard = false"
+                @input="onInputChange"
               />
             </span>
           </div>
@@ -174,7 +178,7 @@ export default {
         </div>
       </div>
     </div>
-    <SimpleKeyboard :input="input" @on-change="onChange" @on-key-press="onKeyPress" />
+    <SimpleKeyboard v-show="isOpenKeyboard" :input="input" @on-change="onChange" @on-key-press="onKeyPress" />
   </div>
 </template>
 
