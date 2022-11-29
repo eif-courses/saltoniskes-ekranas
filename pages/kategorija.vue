@@ -199,7 +199,7 @@ export default {
               <br>
               <hr>
               <b class="text-3xl ml-8">{{ post.name }}</b><br>
-              <b class="text-3xl ml-8 text-indigo-400">Tel. {{ post.phone }}</b><br>
+              <b style="white-space: pre-line" class="text-block text-3xl ml-8 text-indigo-400">Tel. {{ post.phone }} </b><br>
               <hr>
               <b class="text-green-500 ml-8">{{ post.classroom }} kab. </b><br>
             </button>
@@ -217,7 +217,7 @@ export default {
               <br>
               <hr>
               <b class="text-3xl ml-8"> {{ pEng.name }}</b><br>
-              <b class="text-3xl ml-8 text-indigo-400">Tel. {{ pEng.phone }}</b><br>
+              <b style="white-space: pre-line" class="text-block text-3xl ml-8 text-indigo-400">Tel. {{ pEng.phone }}</b><br>
               <hr>
               <b class="text-green-500">{{ pEng.classroom }} kab.</b> <br>
             </button>
@@ -229,6 +229,10 @@ export default {
 </template>
 
 <style scoped>
+.text-block {
+  white-space: pre-line;
+}
+
 .p-button,
 .p-splitbutton {
   margin-bottom: 0.5rem;
