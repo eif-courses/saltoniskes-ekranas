@@ -47,7 +47,7 @@ export default {
 </script>
 
 <template>
-  <div class="viko-style grid grid-nogutter surface-section text-800">
+  <div style="border: 1px solid grey;" class="viko-style grid grid-nogutter surface-section text-800">
     <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center ">
       <section>
         <DigitalClock />
@@ -55,14 +55,15 @@ export default {
         <span class="p-buttonset">
 
           <a href="/kategorija?lang=lt" class="no-underline">
-            <button class="button-30 text-5xl h-full font-bold p-5" role="button" @click="changeLanguage">
-              <img src="/lietuviu.png" width="100" alt="LT">
+            <button class="button-30 text-3xl font-bold p-6" role="button" @click="changeLanguage">
+              <img src="/lietuviu.png" width="64" alt="LT">
               &nbsp;Kontaktai
             </button>
           </a>
+          <Divider layout="horizontal" style="visibility:hidden"/>
           <a href="/kategorija?lang=en" class="no-underline">
-            <button class="button-30 text-5xl h-full font-bold p-5 ml-5" role="button" @click="changeLanguage">
-              <img src="/en.png" width="100" alt="LT">
+            <button class="button-30 text-3xl font-bold p-6" role="button" @click="changeLanguage">
+              <img src="/en.png" width="70" alt="LT">
               &nbsp;Contacts
             </button>
           </a>
@@ -73,7 +74,7 @@ export default {
       <img src="https://i.ibb.co/cCtZGyR/viko.jpg" alt="Image" class="md:mr-8 block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>
   </div>
-  <div class="button-31 p-7 col-12 w-full h-full">
+  <div class="mt-4 button-31 p-3 col-6 md:left-0 h-full">
     Vilniaus kolegija<br>
     Saltoniškių g. 58 - 1, 08105, Vilnius.<br>
     Įmonės kodas 111965131<br>
@@ -247,6 +248,8 @@ export default {
 
 .button-31 {
   align-items: center;
+  margin-left:50px;
+  width: 95%;
   appearance: none;
   background-color: #FCFCFD;
   border-radius: 4px;
@@ -255,7 +258,6 @@ export default {
   box-sizing: border-box;
   color: #36395A;
   cursor: pointer;
-  display: inline-flex;
   font-family: 'Azo Sans', sans-serif;
   height: 48px;
   line-height: 1.5;
