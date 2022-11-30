@@ -68,15 +68,18 @@ export default {
       // alert('Unable to fetch records!')
     }
     else {
+      const output = data.sort((a, b) => a.orderCategory - b.orderCategory)
       const arr = []
       const arrEnglish = []
       for (const d of data)
         arr.push(d.category)
-
       for (const d of data)
         arrEnglish.push(d.categoryEn)
+      // eslint-disable-next-line no-console
+      // console.log(output)
       this.postsEn = [...new Set(arrEnglish)]
       this.posts = [...new Set(arr)]
+
       this.employees = data
     }
   },

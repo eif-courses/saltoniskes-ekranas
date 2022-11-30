@@ -74,7 +74,7 @@ export default {
       <img src="https://i.ibb.co/cCtZGyR/viko.jpg" alt="Image" class="md:mr-8 block md:h-full" style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)">
     </div>
   </div>
-  <div class="mt-4 button-31 p-3 col-6 md:left-0 h-full">
+  <div class="mt-8 button-31 text-2xl p-3 col-6 h-full">
     Vilniaus kolegija<br>
     Saltoniškių g. 58 - 1, 08105, Vilnius.<br>
     Įmonės kodas 111965131<br>
